@@ -9,10 +9,12 @@ import UIKit
 
 class Task {
     let title: String
-    let category: String
+    let description: String
+    let category: Category
     var  isComplete: Bool
-    init(title: String, category: String, isComplete: Bool) {
+    init(title: String, description: String, category: Category, isComplete: Bool = false) {
         self.title = title
+        self.description = description
         self.category = category
         self.isComplete = isComplete
     }
@@ -21,19 +23,24 @@ class Task {
     }
 }
 
+protocol AddTaskDelegate: AnyObject {
+    func add(task: Task)
+}
+
 protocol ViewControllerDelegate: AnyObject {
     func toggleIsComplete(forindex index: Int)
 }
 
-class ViewController: UIViewController, ViewControllerDelegate {
-
+class ViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
-
-    var tasks: [Task] = [
-    Task(title: "walk", category: "hobby", isComplete: false),
-    Task(title: "run", category: "leisure", isComplete: true)
-    ]
+    
+    var tasks: [Task] = []
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let destinationVC = segue.destination as! AddTaskViewController
+        destinationVC.delegate = self
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,11 +48,27 @@ class ViewController: UIViewController, ViewControllerDelegate {
         tableView.delegate = self
     }
     
-    func toggleIsComplete(forindex index: Int) {
+    @IBAction func addButtonTapped(_ sender: Any) {
+        performSegue(withIdentifier: "CreateTaskSegue", sender: nil)
+    }
+    
+        }
+
+extension ViewController: AddTaskDelegate {
+    
+    func add(task: Task) {
+        self.tasks.append(task)
+        tableView.reloadData()
         
     }
+}
 
-   
+extension ViewController: ViewControllerDelegate {
+    func toggleIsComplete(forindex index: Int) {
+        let taskSelected = tasks[index] //look into this line
+        taskSelected.toggleIsComplete()
+        tableView.reloadData()
+    }
 }
 
 //MARK: - TableView data source
@@ -60,7 +83,7 @@ extension ViewController: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "TaskTableViewCell", for: indexPath) as! TaskTableViewCell
         
         cell.titleLabel.text = task.title
-        cell.categoryLabel.text = task.category
+        cell.categoryLabel.text = task.category.rawValue 
         cell.delegate = self // (initialise VC var)
         cell.index = indexPath.row
         

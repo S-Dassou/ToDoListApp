@@ -17,7 +17,7 @@ class TaskTableViewCell: UITableViewCell {
     
     @IBAction func checkmarkButtonTapped(_ sender: Any) {
         print("cell was tapped")
-        guard let viewController = viewController else {
+        guard let viewController = delegate else {
             return
         }
         delegate?.toggleIsComplete(forindex: index)
