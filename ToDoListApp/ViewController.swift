@@ -94,6 +94,14 @@ extension ViewController: UITableViewDataSource {
         }
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            tasks.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .automatic)
+        }
+    }
+    
 }
 
 //MARK: - Change row height
@@ -102,14 +110,6 @@ extension ViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 80
     }
-//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        let taskSelected = tasks[indexPath.row]
-//        taskSelected.toggleIsComplete()
-//        tableView.reloadData() //could we put this into the toggle func?
-//    }
- 
+
+    
 }
-//if it was a class: 
-//let taskSelected = tasks[IndexPath.row]
-//taskSelected.isComplete = !taskSelected.isComplete
-//tableView.reloadData()
