@@ -92,6 +92,7 @@ extension ViewController: UITableViewDataSource {
         } else {
             cell.checkmarkButton.setImage(UIImage(systemName: "circle"), for: .normal)
         }
+        
         return cell
     }
     
