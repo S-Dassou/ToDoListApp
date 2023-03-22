@@ -35,18 +35,47 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
+    var selectedIndex: Int = 0
     var tasks: [Task] = []
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let destinationVC = segue.destination as! AddTaskViewController
-        destinationVC.delegate = self
+        
+        if segue.identifier == "CreateTaskSegue" {
+            let destinationVC = segue.destination as! AddTaskViewController
+            destinationVC.delegate = self
+        }
+        else if segue.identifier == "TaskDetailSegue" {
+            let destinationVC = segue.destination as! TaskDetailViewController
+            let index = sender as! Int
+            let selectedTask = tasks[index]
+            destinationVC.task = selectedTask
+            destinationVC.index = index
+            destinationVC.delegate = self
+        }
+
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.dataSource = self
         tableView.delegate = self
+        NotificationCenter.default.addObserver(self, selector: #selector(refresh), name: NSNotification.Name(rawValue: "com.shafiquedassu.refresh"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(deleteTaskFromNotification(_:)), name: NSNotification.Name("com.shafiquedassu.deleteTask"), object: nil)
     }
+    
+    @objc func deleteTaskFromNotification(_ notification: Notification) {
+        if let userInfo = notification.userInfo,
+        let index = userInfo["index"] as? Int {
+            tasks.remove(at: index)
+            tableView.reloadData()
+        }
+    }
+    
+   @objc func refresh() {
+        tableView.reloadData()
+    }
+    
+ 
     
     @IBAction func addButtonTapped(_ sender: Any) {
         performSegue(withIdentifier: "CreateTaskSegue", sender: nil)
@@ -54,12 +83,18 @@ class ViewController: UIViewController {
     
         }
 
+extension ViewController: TaskDetailDelegate {
+    func deleteTask(index: Int) {
+        tasks.remove(at: index)
+        tableView.reloadData()
+    }
+}
+
 extension ViewController: AddTaskDelegate {
     
     func add(task: Task) {
         self.tasks.append(task)
         tableView.reloadData()
-        
     }
 }
 
@@ -112,5 +147,10 @@ extension ViewController: UITableViewDelegate {
         return 80
     }
 
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let taskSelected = tasks[indexPath.row]
+        let index = indexPath.row
+        performSegue(withIdentifier: "TaskDetailSegue", sender: indexPath.row)
+    }
     
 }
