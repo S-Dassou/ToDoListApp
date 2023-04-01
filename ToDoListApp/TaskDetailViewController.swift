@@ -20,16 +20,35 @@ class TaskDetailViewController: UIViewController {
     var task: Task?
     var index: Int?
     var delegate: TaskDetailDelegate?
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let destinationVC = segue.destination as! AddTaskViewController
+        let task = sender as! Task
+        destinationVC.task = task
+        destinationVC.index = index
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         if let task = task {
-            titleLabel.text = task.title
-            categoryLabel.text = task.category.rawValue
-            descriptionLabel.text = task.description
-            let toggleButtonTitle = task.isComplete ? "Mark Task Incomplete" : "Mark Task Complete"
-            toggleTaskCompletionButton.setTitle(toggleButtonTitle, for: .normal)
+           setupTaskDetail(task: task)
         }
-       
+        NotificationCenter.default.addObserver(self, selector: #selector(updateTaskFromNotification(_:)), name: NSNotification.Name("com.shafiquedassu.updateTask"), object: nil)
+    }
+    
+    func setupTaskDetail(task: Task) {
+        titleLabel.text = task.title
+        categoryLabel.text = task.category.rawValue
+        descriptionLabel.text = task.description
+        let toggleButtonTitle = task.isComplete ? "Mark Task Incomplete" : "Mark Task Complete"
+        toggleTaskCompletionButton.setTitle(toggleButtonTitle, for: .normal)
+    }
+    
+    @objc func updateTaskFromNotification(_ notification: Notification) {
+        if let userInfo = notification.userInfo,
+           let task = userInfo["task"] as? Task {
+            setupTaskDetail(task: task)
+        }
     }
 
     @IBAction func deleteButtonTapped(_ sender: Any) {
@@ -64,6 +83,8 @@ class TaskDetailViewController: UIViewController {
     }
     
     @IBAction func editTaskButtonTapped(_ sender: Any) {
+        guard let task = task else { return }
+        performSegue(withIdentifier: "EditTaskSegue", sender: task)
     }
     
 }

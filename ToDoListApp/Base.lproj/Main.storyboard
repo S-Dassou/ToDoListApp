@@ -175,6 +175,7 @@
                         <outlet property="descriptionLabel" destination="fKQ-Mx-SeQ" id="yuw-vv-acL"/>
                         <outlet property="titleLabel" destination="OZ9-ec-7ki" id="Tyl-uf-MJX"/>
                         <outlet property="toggleTaskCompletionButton" destination="Scl-mL-gPY" id="Xc0-AZ-Gld"/>
+                        <segue destination="724-yU-jC4" kind="presentation" identifier="EditTaskSegue" id="yvv-Qt-2bW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XqP-WB-tTf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -306,6 +307,7 @@
                         <outlet property="descriptionTextView" destination="jyk-FR-mFT" id="xC8-2E-NSE"/>
                         <outlet property="scrollView" destination="gtv-U5-02C" id="k3C-Kr-cio"/>
                         <outlet property="submitButton" destination="OeO-fx-MER" id="YCa-ku-wt7"/>
+                        <outlet property="titleLabel" destination="UtU-9Z-vcV" id="frI-eo-bng"/>
                         <outlet property="titleTextField" destination="xhg-Qs-EFi" id="Ree-ZI-Yyd"/>
                     </connections>
                 </viewController>
@@ -332,6 +334,9 @@
             <point key="canvasLocation" x="135.1145038167939" y="3.5211267605633805"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="yvv-Qt-2bW"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="circle" catalog="system" width="128" height="123"/>
         <image name="plus" catalog="system" width="128" height="113"/>

@@ -14,8 +14,11 @@ class AddTaskViewController: UIViewController {
     @IBOutlet weak var descriptionTextView: UITextView!
     @IBOutlet weak var submitButton: UIButton!
     @IBOutlet weak var scrollView: UIScrollView!
-    weak var delegate: AddTaskDelegate?
+    @IBOutlet weak var titleLabel: UILabel!
     
+    weak var delegate: AddTaskDelegate?
+    var task: Task?
+    var index: Int?
     lazy var categories: [Category] = {
         return Category.allCases
     } ()
@@ -25,6 +28,18 @@ class AddTaskViewController: UIViewController {
         scrollView.isScrollEnabled = false
         categoryPickerView.dataSource = self
         categoryPickerView.delegate = self
+        if let task = task {
+            titleLabel.text = "Edit Task"
+            titleTextField.text = task.title
+            descriptionTextView.text = task.description
+            let taskCategory = task.category
+            var row = categories.firstIndex { queryCategory in
+                queryCategory == taskCategory
+            }
+            if let row = row {
+                categoryPickerView.selectRow(row, inComponent: 0 , animated: false)
+            }
+        }
         // Do any additional setup after loading the view.
     }
     
@@ -39,7 +54,15 @@ class AddTaskViewController: UIViewController {
         let selectedPickerViewRow = categoryPickerView.selectedRow(inComponent: 0)
         let selectedCategory = categories[selectedPickerViewRow]
         let newTask = Task(title: title, description: description, category: selectedCategory)
-        delegate?.add(task: newTask)
+        
+        if let _ = task,
+            let index = index {
+            NotificationCenter.default.post(name: NSNotification.Name("com.shafiquedassu.updateTask"), object: nil, userInfo: ["index": index, "task": newTask])
+        } else {
+            delegate?.add(task: newTask)
+        }
+        
+        
         dismiss(animated: true)
     }
     

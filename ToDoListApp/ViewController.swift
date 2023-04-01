@@ -61,6 +61,16 @@ class ViewController: UIViewController {
         tableView.delegate = self
         NotificationCenter.default.addObserver(self, selector: #selector(refresh), name: NSNotification.Name(rawValue: "com.shafiquedassu.refresh"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(deleteTaskFromNotification(_:)), name: NSNotification.Name("com.shafiquedassu.deleteTask"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(updateTaskFromNotification(_:)), name: NSNotification.Name("com.shafiquedassu.updateTask"), object: nil)
+    }
+    
+    @objc func updateTaskFromNotification(_ notification: Notification) {
+        if let userInfo = notification.userInfo,
+        let index = userInfo["index"] as? Int,
+           let task = userInfo["task"] as? Task {
+            tasks[index] = task
+            tableView.reloadData()
+        }
     }
     
     @objc func deleteTaskFromNotification(_ notification: Notification) {
