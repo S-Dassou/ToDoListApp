@@ -16,6 +16,11 @@
 		F61C2B8A29A4CFDC0097CA7B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F61C2B8829A4CFDC0097CA7B /* LaunchScreen.storyboard */; };
 		F61C2B9229A4D6680097CA7B /* TaskTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F61C2B9129A4D6680097CA7B /* TaskTableViewCell.swift */; };
 		F630AEF429C6F4E000FBF2AD /* TaskDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F630AEF329C6F4E000FBF2AD /* TaskDetailViewController.swift */; };
+		F65955A029E2CE4300E161EB /* EmptyStateView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F659559F29E2CE4300E161EB /* EmptyStateView.xib */; };
+		F6835D2129E2AC1D0075FB5C /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = F6835D2029E2AC1D0075FB5C /* Lottie */; };
+		F6835D2529E2BCAB0075FB5C /* TaskMan.json in Resources */ = {isa = PBXBuildFile; fileRef = F6835D2429E2BCAB0075FB5C /* TaskMan.json */; };
+		F6835D2729E2C17F0075FB5C /* EmptyStateTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6835D2629E2C17F0075FB5C /* EmptyStateTableViewCell.swift */; };
+		F6835D2929E2CD810075FB5C /* EmptyStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6835D2829E2CD810075FB5C /* EmptyStateView.swift */; };
 		F6AA3A3B29BF765300D83FB8 /* CategoriesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6AA3A3A29BF765300D83FB8 /* CategoriesModel.swift */; };
 /* End PBXBuildFile section */
 
@@ -31,6 +36,10 @@
 		F61C2B8B29A4CFDC0097CA7B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F61C2B9129A4D6680097CA7B /* TaskTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskTableViewCell.swift; sourceTree = "<group>"; };
 		F630AEF329C6F4E000FBF2AD /* TaskDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskDetailViewController.swift; sourceTree = "<group>"; };
+		F659559F29E2CE4300E161EB /* EmptyStateView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EmptyStateView.xib; sourceTree = "<group>"; };
+		F6835D2429E2BCAB0075FB5C /* TaskMan.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = TaskMan.json; sourceTree = "<group>"; };
+		F6835D2629E2C17F0075FB5C /* EmptyStateTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyStateTableViewCell.swift; sourceTree = "<group>"; };
+		F6835D2829E2CD810075FB5C /* EmptyStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyStateView.swift; sourceTree = "<group>"; };
 		F6AA3A3A29BF765300D83FB8 /* CategoriesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -39,6 +48,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F6835D2129E2AC1D0075FB5C /* Lottie in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -64,6 +74,7 @@
 		F61C2B7C29A4CFDB0097CA7B /* ToDoListApp */ = {
 			isa = PBXGroup;
 			children = (
+				F6835D2229E2BC750075FB5C /* Resources */,
 				F61C2B7D29A4CFDB0097CA7B /* AppDelegate.swift */,
 				F61C2B7F29A4CFDB0097CA7B /* SceneDelegate.swift */,
 				F61C2B8129A4CFDB0097CA7B /* ViewController.swift */,
@@ -71,12 +82,31 @@
 				F61A42B329BBAC2A0096CB23 /* AddTaskViewController.swift */,
 				F6AA3A3A29BF765300D83FB8 /* CategoriesModel.swift */,
 				F630AEF329C6F4E000FBF2AD /* TaskDetailViewController.swift */,
+				F6835D2629E2C17F0075FB5C /* EmptyStateTableViewCell.swift */,
+				F6835D2829E2CD810075FB5C /* EmptyStateView.swift */,
+				F659559F29E2CE4300E161EB /* EmptyStateView.xib */,
 				F61C2B8329A4CFDB0097CA7B /* Main.storyboard */,
 				F61C2B8629A4CFDC0097CA7B /* Assets.xcassets */,
 				F61C2B8829A4CFDC0097CA7B /* LaunchScreen.storyboard */,
 				F61C2B8B29A4CFDC0097CA7B /* Info.plist */,
 			);
 			path = ToDoListApp;
+			sourceTree = "<group>";
+		};
+		F6835D2229E2BC750075FB5C /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				F6835D2329E2BC920075FB5C /* Lottie */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		F6835D2329E2BC920075FB5C /* Lottie */ = {
+			isa = PBXGroup;
+			children = (
+				F6835D2429E2BCAB0075FB5C /* TaskMan.json */,
+			);
+			path = Lottie;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -95,6 +125,9 @@
 			dependencies = (
 			);
 			name = ToDoListApp;
+			packageProductDependencies = (
+				F6835D2029E2AC1D0075FB5C /* Lottie */,
+			);
 			productName = ToDoListApp;
 			productReference = F61C2B7A29A4CFDB0097CA7B /* ToDoListApp.app */;
 			productType = "com.apple.product-type.application";
@@ -123,6 +156,9 @@
 				Base,
 			);
 			mainGroup = F61C2B7129A4CFDB0097CA7B;
+			packageReferences = (
+				F6835D1F29E2AC1D0075FB5C /* XCRemoteSwiftPackageReference "lottie-ios" */,
+			);
 			productRefGroup = F61C2B7B29A4CFDB0097CA7B /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -138,8 +174,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				F61C2B8A29A4CFDC0097CA7B /* LaunchScreen.storyboard in Resources */,
+				F65955A029E2CE4300E161EB /* EmptyStateView.xib in Resources */,
 				F61C2B8729A4CFDC0097CA7B /* Assets.xcassets in Resources */,
 				F61C2B8529A4CFDB0097CA7B /* Main.storyboard in Resources */,
+				F6835D2529E2BCAB0075FB5C /* TaskMan.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -150,9 +188,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F6835D2929E2CD810075FB5C /* EmptyStateView.swift in Sources */,
 				F630AEF429C6F4E000FBF2AD /* TaskDetailViewController.swift in Sources */,
 				F61C2B9229A4D6680097CA7B /* TaskTableViewCell.swift in Sources */,
 				F61C2B8229A4CFDB0097CA7B /* ViewController.swift in Sources */,
+				F6835D2729E2C17F0075FB5C /* EmptyStateTableViewCell.swift in Sources */,
 				F61C2B7E29A4CFDB0097CA7B /* AppDelegate.swift in Sources */,
 				F6AA3A3B29BF765300D83FB8 /* CategoriesModel.swift in Sources */,
 				F61C2B8029A4CFDB0097CA7B /* SceneDelegate.swift in Sources */,
@@ -372,6 +412,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		F6835D1F29E2AC1D0075FB5C /* XCRemoteSwiftPackageReference "lottie-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/airbnb/lottie-ios";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		F6835D2029E2AC1D0075FB5C /* Lottie */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F6835D1F29E2AC1D0075FB5C /* XCRemoteSwiftPackageReference "lottie-ios" */;
+			productName = Lottie;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = F61C2B7229A4CFDB0097CA7B /* Project object */;
 }

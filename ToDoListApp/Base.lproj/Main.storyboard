@@ -65,6 +65,41 @@
                                             <outlet property="titleLabel" destination="i9C-4e-p4D" id="j9w-lO-vmx"/>
                                         </connections>
                                     </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="EmptyStateTableViewCell" rowHeight="539" id="ndt-iP-8hf" customClass="EmptyStateTableViewCell" customModule="ToDoListApp" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="123" width="393" height="539"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ndt-iP-8hf" id="DAL-Yb-yB7">
+                                            <rect key="frame" x="0.0" y="0.0" width="393" height="539"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3nf-bs-nz2" customClass="LottieAnimationView" customModule="Lottie">
+                                                    <rect key="frame" x="55" y="128" width="283" height="283"/>
+                                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="3nf-bs-nz2" secondAttribute="height" multiplier="1:1" id="yxP-uu-Thu"/>
+                                                    </constraints>
+                                                </view>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap + To Add Task" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bKF-cf-9WN">
+                                                    <rect key="frame" x="25" y="431" width="343" height="19.333333333333314"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="bKF-cf-9WN" firstAttribute="leading" secondItem="DAL-Yb-yB7" secondAttribute="leading" constant="25" id="Bvr-xr-69x"/>
+                                                <constraint firstItem="3nf-bs-nz2" firstAttribute="centerX" secondItem="DAL-Yb-yB7" secondAttribute="centerX" id="PhK-NL-tEE"/>
+                                                <constraint firstItem="3nf-bs-nz2" firstAttribute="centerY" secondItem="DAL-Yb-yB7" secondAttribute="centerY" id="VtQ-tC-2QY"/>
+                                                <constraint firstItem="bKF-cf-9WN" firstAttribute="top" secondItem="3nf-bs-nz2" secondAttribute="bottom" constant="20" id="ZIb-3D-jUW"/>
+                                                <constraint firstAttribute="trailing" secondItem="bKF-cf-9WN" secondAttribute="trailing" constant="25" id="awp-we-R99"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="3nf-bs-nz2" secondAttribute="trailing" constant="35" id="gmD-F6-gq0"/>
+                                                <constraint firstItem="3nf-bs-nz2" firstAttribute="leading" secondItem="DAL-Yb-yB7" secondAttribute="leadingMargin" constant="35" id="oGU-Ay-1we"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="animationView" destination="3nf-bs-nz2" id="PQB-FC-DuK"/>
+                                        </connections>
+                                    </tableViewCell>
                                 </prototypes>
                             </tableView>
                         </subviews>
@@ -77,13 +112,7 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="a1u-hj-l4P" secondAttribute="bottom" id="q2J-Vy-19b"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Tasks" id="3Iw-cQ-yoS">
-                        <barButtonItem key="rightBarButtonItem" image="plus" catalog="system" id="8GV-dS-DB2">
-                            <connections>
-                                <action selector="addButtonTapped:" destination="BYZ-38-t0r" id="aOA-i0-R7P"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Tasks" id="3Iw-cQ-yoS"/>
                     <connections>
                         <outlet property="tableView" destination="a1u-hj-l4P" id="Kqd-Z0-ncV"/>
                         <segue destination="724-yU-jC4" kind="presentation" identifier="CreateTaskSegue" id="csn-kU-C1O"/>
@@ -92,7 +121,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1060.3053435114502" y="3.5211267605633805"/>
+            <point key="canvasLocation" x="1057.2519083969464" y="3.5211267605633805"/>
         </scene>
         <!--Task Detail View Controller-->
         <scene sceneID="yar-pK-JJ9">
@@ -335,11 +364,10 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="yvv-Qt-2bW"/>
+        <segue reference="csn-kU-C1O"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="circle" catalog="system" width="128" height="123"/>
-        <image name="plus" catalog="system" width="128" height="113"/>
         <image name="trash" catalog="system" width="117" height="128"/>
         <systemColor name="labelColor">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
