@@ -15,6 +15,7 @@ class AddTaskViewController: UIViewController {
     @IBOutlet weak var submitButton: UIButton!
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var modalView: UIView!
     
     weak var delegate: AddTaskDelegate?
     var task: Task?
@@ -40,7 +41,7 @@ class AddTaskViewController: UIViewController {
                 categoryPickerView.selectRow(row, inComponent: 0 , animated: false)
             }
         }
-        // Do any additional setup after loading the view.
+        modalView.layer.cornerRadius = 6
     }
     
 
@@ -63,9 +64,12 @@ class AddTaskViewController: UIViewController {
         }
         
         
-        dismiss(animated: true)
+        
     }
     
+    @IBAction func dismissAddTask(_ sender: Any) {
+        dismiss(animated: true)
+    }
 }
 
 extension AddTaskViewController: UIPickerViewDataSource {
