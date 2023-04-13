@@ -59,9 +59,7 @@ class ViewController: UIViewController {
     var selectedIndex: Int = 0
     var tasks: [Task] = [] {
         didSet {
-            if tasks.count == 0 {
-                emptyStateView.isHidden = false
-            }
+                emptyStateView.isHidden = tasks.count != 0
         }
     }
     
@@ -93,7 +91,7 @@ class ViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(updateTaskFromNotification(_:)), name: NSNotification.Name("com.shafiquedassu.updateTask"), object: nil)
         view.addSubview(emptyStateView)
         view.addSubview(addTaskButton)
-        emptyStateView.isHidden = tasks.count != 0
+
      
     }
     override func viewDidLayoutSubviews() {
@@ -131,6 +129,7 @@ class ViewController: UIViewController {
  
     
     @objc func addButtonTapped() {
+        print("button tapped")
         performSegue(withIdentifier: "CreateTaskSegue", sender: nil)
     }
     
@@ -163,25 +162,37 @@ extension ViewController: ViewControllerDelegate {
 extension ViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+//        if tasks.count == 0 {
+//            return 1
+//        }
+        //if i uncomment above code, 2 empty state views appear... why? returning 1 empty state view cell that is repeating.
         return tasks.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let task = tasks[indexPath.row]
-        let cell = tableView.dequeueReusableCell(withIdentifier: "TaskTableViewCell", for: indexPath) as! TaskTableViewCell
-        
-        cell.titleLabel.text = task.title
-        cell.categoryLabel.text = task.category.rawValue
-        cell.delegate = self // (initialise VC var)
-        cell.index = indexPath.row
-        
-        if task.isComplete {
-            cell.checkmarkButton.setImage(UIImage(systemName: "checkmark.circle"), for: .normal)
-        } else {
-            cell.checkmarkButton.setImage(UIImage(systemName: "circle"), for: .normal)
+//        if tasks.count == 0 {
+//            let cell = tableView.dequeueReusableCell(withIdentifier: "EmptyStateTableViewCell", for: indexPath) as! EmptyStateTableViewCell
+//            return cell
+//        } else {
+            let task = tasks[indexPath.row]
+            let cell = tableView.dequeueReusableCell(withIdentifier: "TaskTableViewCell", for: indexPath) as! TaskTableViewCell
+            
+            cell.titleLabel.text = task.title
+            cell.categoryLabel.text = task.category.rawValue
+            cell.delegate = self // (initialise VC var)
+            cell.index = indexPath.row
+            
+            if task.isComplete {
+                cell.checkmarkButton.setImage(UIImage(systemName: "checkmark.circle"), for: .normal)
+            } else {
+                cell.checkmarkButton.setImage(UIImage(systemName: "circle"), for: .normal)
+            }
+            return cell
         }
-        return cell
-    }
+        
+        
+
+    
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {

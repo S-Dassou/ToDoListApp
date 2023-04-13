@@ -13,7 +13,6 @@ class AddTaskViewController: UIViewController {
     @IBOutlet weak var categoryPickerView: UIPickerView!
     @IBOutlet weak var descriptionTextView: UITextView!
     @IBOutlet weak var submitButton: UIButton!
-    @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var modalView: UIView!
     
@@ -26,7 +25,8 @@ class AddTaskViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        scrollView.isScrollEnabled = false
+        print("ATVC appeared")
+        //change colour
         categoryPickerView.dataSource = self
         categoryPickerView.delegate = self
         if let task = task {
@@ -42,8 +42,30 @@ class AddTaskViewController: UIViewController {
             }
         }
         modalView.layer.cornerRadius = 6
+        titleTextField.layer.borderWidth = 0.5
+        titleTextField.layer.borderColor = UIColor.lightGray.cgColor
+        titleTextField.layer.cornerRadius = 6
+        descriptionTextView.layer.borderWidth = 0.5
+        descriptionTextView.layer.borderColor = UIColor.lightGray.cgColor
+        descriptionTextView.layer.cornerRadius = 6
+        submitButton.layer.cornerRadius = submitButton.frame.height / 2
+        
+        modalView.transform = CGAffineTransform(scaleX: 0, y: 0)
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+//        UIView.animate(withDuration: 0.25, delay: 0) {
+//            self.modalView.transform = CGAffineTransform(scaleX: 1, y: 1)
+//        }
+        UIView.animate(withDuration: 0.35, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 2, options: [.curveEaseOut]) {
+            self.modalView.transform = CGAffineTransform(scaleX: 1, y: 1)
+        } completion: { success in
+            
+        }
+
+    }
 
     @IBAction func submitButtonTapped(_ sender: Any) {
         guard let title = titleTextField.text else {
@@ -62,7 +84,7 @@ class AddTaskViewController: UIViewController {
         } else {
             delegate?.add(task: newTask)
         }
-        
+        dismiss(animated: true)
         
         
     }
