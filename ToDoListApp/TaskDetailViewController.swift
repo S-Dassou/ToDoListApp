@@ -19,7 +19,7 @@ class TaskDetailViewController: UIViewController {
     @IBOutlet weak var toggleTaskCompletionButton: UIButton!
     var task: Task?
     var index: Int?
-    var delegate: TaskDetailDelegate?
+    weak var delegate: TaskDetailDelegate?
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let destinationVC = segue.destination as! AddTaskViewController

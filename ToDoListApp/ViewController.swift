@@ -6,22 +6,8 @@
 //
 
 import UIKit
+import RealmSwift
 
-class Task {
-    let title: String
-    let description: String
-    let category: Category
-    var  isComplete: Bool
-    init(title: String, description: String, category: Category, isComplete: Bool = false) {
-        self.title = title
-        self.description = description
-        self.category = category
-        self.isComplete = isComplete
-    }
-    func toggleIsComplete() {
-        isComplete = !isComplete
-    }
-}
 
 protocol AddTaskDelegate: AnyObject {
     func add(task: Task)
@@ -92,7 +78,19 @@ class ViewController: UIViewController {
         view.addSubview(emptyStateView)
         view.addSubview(addTaskButton)
 
-     
+        let realm = try! Realm()
+        let localTasks = realm.objects(LocalTask.self)
+        
+        for localTask in localTasks {
+            if let category = Category(rawValue: localTask.category) {
+                let task = Task(id: localTask.id, title: localTask.taskTitle, description: localTask.taskDescription, category: category)
+                tasks.append(task)
+            }
+        }
+        
+        if tasks.count > 0 {
+            tableView.reloadData()
+        }
     }
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
@@ -109,6 +107,17 @@ class ViewController: UIViewController {
         if let userInfo = notification.userInfo,
         let index = userInfo["index"] as? Int,
            let task = userInfo["task"] as? Task {
+      
+            let realm = try! Realm()
+            if let localTask = realm.object(ofType: LocalTask.self, forPrimaryKey: task.id) {
+                localTask.taskTitle = task.title
+                localTask.taskDescription = task.description
+                localTask.category = task.category.rawValue
+                
+            }
+            try! realm.write {
+                
+            }
             tasks[index] = task
             tableView.reloadData()
         }
@@ -196,6 +205,13 @@ extension ViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
+            let realm = try! Realm()
+            let task = tasks[indexPath.row]
+            if let localTask = realm.object(ofType: LocalTask.self, forPrimaryKey: task.id) {
+                try! realm.write {
+                    realm.delete(localTask)
+                }
+            }
             tasks.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .automatic)
         }

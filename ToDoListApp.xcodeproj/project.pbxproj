@@ -16,9 +16,9 @@
 		F61C2B8A29A4CFDC0097CA7B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F61C2B8829A4CFDC0097CA7B /* LaunchScreen.storyboard */; };
 		F61C2B9229A4D6680097CA7B /* TaskTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F61C2B9129A4D6680097CA7B /* TaskTableViewCell.swift */; };
 		F630AEF429C6F4E000FBF2AD /* TaskDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F630AEF329C6F4E000FBF2AD /* TaskDetailViewController.swift */; };
+		F63AE19929EBEA090037E523 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = F63AE19829EBEA090037E523 /* Task.swift */; };
 		F64036B629E52440009CBCCD /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = F64036B529E52440009CBCCD /* Realm */; };
 		F64036B829E52440009CBCCD /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = F64036B729E52440009CBCCD /* RealmSwift */; };
-		F64036BB29E52561009CBCCD /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = F64036BA29E52561009CBCCD /* Task.swift */; };
 		F65955A029E2CE4300E161EB /* EmptyStateView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F659559F29E2CE4300E161EB /* EmptyStateView.xib */; };
 		F6835D2129E2AC1D0075FB5C /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = F6835D2029E2AC1D0075FB5C /* Lottie */; };
 		F6835D2529E2BCAB0075FB5C /* TaskMan.json in Resources */ = {isa = PBXBuildFile; fileRef = F6835D2429E2BCAB0075FB5C /* TaskMan.json */; };
@@ -39,7 +39,7 @@
 		F61C2B8B29A4CFDC0097CA7B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F61C2B9129A4D6680097CA7B /* TaskTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskTableViewCell.swift; sourceTree = "<group>"; };
 		F630AEF329C6F4E000FBF2AD /* TaskDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskDetailViewController.swift; sourceTree = "<group>"; };
-		F64036BA29E52561009CBCCD /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
+		F63AE19829EBEA090037E523 /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 		F659559F29E2CE4300E161EB /* EmptyStateView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EmptyStateView.xib; sourceTree = "<group>"; };
 		F6835D2429E2BCAB0075FB5C /* TaskMan.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = TaskMan.json; sourceTree = "<group>"; };
 		F6835D2629E2C17F0075FB5C /* EmptyStateTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyStateTableViewCell.swift; sourceTree = "<group>"; };
@@ -80,7 +80,7 @@
 		F61C2B7C29A4CFDB0097CA7B /* ToDoListApp */ = {
 			isa = PBXGroup;
 			children = (
-				F64036B929E52483009CBCCD /* Models */,
+				F63AE19729EBE9C90037E523 /* Models */,
 				F6835D2229E2BC750075FB5C /* Resources */,
 				F61C2B7D29A4CFDB0097CA7B /* AppDelegate.swift */,
 				F61C2B7F29A4CFDB0097CA7B /* SceneDelegate.swift */,
@@ -100,10 +100,10 @@
 			path = ToDoListApp;
 			sourceTree = "<group>";
 		};
-		F64036B929E52483009CBCCD /* Models */ = {
+		F63AE19729EBE9C90037E523 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				F64036BA29E52561009CBCCD /* Task.swift */,
+				F63AE19829EBEA090037E523 /* Task.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -208,7 +208,7 @@
 			files = (
 				F6835D2929E2CD810075FB5C /* EmptyStateView.swift in Sources */,
 				F630AEF429C6F4E000FBF2AD /* TaskDetailViewController.swift in Sources */,
-				F64036BB29E52561009CBCCD /* Task.swift in Sources */,
+				F63AE19929EBEA090037E523 /* Task.swift in Sources */,
 				F61C2B9229A4D6680097CA7B /* TaskTableViewCell.swift in Sources */,
 				F61C2B8229A4CFDB0097CA7B /* ViewController.swift in Sources */,
 				F6835D2729E2C17F0075FB5C /* EmptyStateTableViewCell.swift in Sources */,

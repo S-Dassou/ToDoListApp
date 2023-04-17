@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import RealmSwift
 
 class AddTaskViewController: UIViewController {
     
@@ -76,12 +77,29 @@ class AddTaskViewController: UIViewController {
         }
         let selectedPickerViewRow = categoryPickerView.selectedRow(inComponent: 0)
         let selectedCategory = categories[selectedPickerViewRow]
-        let newTask = Task(title: title, description: description, category: selectedCategory)
         
-        if let _ = task,
+        
+        /*
+         saving to Realm
+         */
+        
+        if let oldTask = task,
             let index = index {
-            NotificationCenter.default.post(name: NSNotification.Name("com.shafiquedassu.updateTask"), object: nil, userInfo: ["index": index, "task": newTask])
+            let updatedTask = Task(id: oldTask.id, title: title, description: description, category: selectedCategory)
+            NotificationCenter.default.post(name: NSNotification.Name("com.shafiquedassu.updateTask"), object: nil, userInfo: ["index": index, "task": updatedTask])
         } else {
+            let taskId = UUID().uuidString
+            let newTask = Task(id: taskId, title: title, description: description, category: selectedCategory)
+            let realm = try! Realm()
+            let localTask = LocalTask()
+            localTask.id = taskId
+            localTask.taskTitle = title
+            localTask.taskDescription = description
+            localTask.category = selectedCategory.rawValue
+            
+            try! realm.write({
+                realm.add(localTask)
+            })
             delegate?.add(task: newTask)
         }
         dismiss(animated: true)
