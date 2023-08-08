@@ -42,10 +42,10 @@ class ViewController: UIViewController {
         return view
     }()
     
-    var selectedIndex: Int = 0
+
     var tasks: [Task] = [] {
         didSet {
-                emptyStateView.isHidden = tasks.count != 0
+            emptyStateView.isHidden = tasks.count != 0
         }
     }
     
@@ -83,7 +83,7 @@ class ViewController: UIViewController {
         
         for localTask in localTasks {
             if let category = Category(rawValue: localTask.category) {
-                let task = Task(id: localTask.id, title: localTask.taskTitle, description: localTask.taskDescription, category: category)
+                let task = Task(id: localTask.id, title: localTask.taskTitle, description: localTask.taskDescription, category: category, isComplete: localTask.isComplete)
                 tasks.append(task)
             }
         }
@@ -161,8 +161,14 @@ extension ViewController: AddTaskDelegate {
 
 extension ViewController: ViewControllerDelegate {
     func toggleIsComplete(forindex index: Int) {
-        let taskSelected = tasks[index] //look into this line
-        taskSelected.toggleIsComplete()
+        let realm = try! Realm()
+        let task = tasks[index]
+        task.toggleIsComplete()
+        if let localTask = realm.object(ofType: LocalTask.self, forPrimaryKey: task.id) {
+            try! realm.write {
+                localTask.isComplete = task.isComplete
+            }
+        }
         tableView.reloadData()
     }
 }
