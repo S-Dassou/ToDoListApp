@@ -23,6 +23,7 @@ class AddTaskViewController: UIViewController {
     lazy var categories: [Category] = {
         return Category.allCases
     } ()
+    var shadowColor: UIColor = .gray
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,7 +51,9 @@ class AddTaskViewController: UIViewController {
         descriptionTextView.layer.borderColor = UIColor.lightGray.cgColor
         descriptionTextView.layer.cornerRadius = 6
         submitButton.layer.cornerRadius = submitButton.frame.height / 2
-        
+        submitButton.layer.shadowColor = shadowColor.cgColor
+        submitButton.layer.shadowOpacity = 1.0
+        submitButton.layer.shadowRadius = 0
         modalView.transform = CGAffineTransform(scaleX: 0, y: 0)
     }
     

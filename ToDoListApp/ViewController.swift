@@ -20,6 +20,9 @@ protocol ViewControllerDelegate: AnyObject {
 class ViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
+    
+    
+    
     lazy var addTaskButton: UIButton = {
         let viewHeight = view.frame.height
         let buttonHeight: CGFloat = 80
@@ -34,6 +37,8 @@ class ViewController: UIViewController {
         button.layer.cornerRadius = buttonHeight / 2
         button.addTarget(self, action: #selector(addButtonTapped), for: .touchUpInside)
         button.frame = CGRect(x: (viewWidth / 2) - (buttonWidth / 2), y: (viewHeight - buttonHeight - 40), width: buttonWidth, height: buttonHeight)
+        
+        
         return button
     }()
  
@@ -204,11 +209,7 @@ extension ViewController: UITableViewDataSource {
             }
             return cell
         }
-        
-        
 
-    
-    
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             let realm = try! Realm()
