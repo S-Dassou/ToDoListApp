@@ -15,12 +15,15 @@
 		F61C2B8729A4CFDC0097CA7B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F61C2B8629A4CFDC0097CA7B /* Assets.xcassets */; };
 		F61C2B8A29A4CFDC0097CA7B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F61C2B8829A4CFDC0097CA7B /* LaunchScreen.storyboard */; };
 		F61C2B9229A4D6680097CA7B /* TaskTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F61C2B9129A4D6680097CA7B /* TaskTableViewCell.swift */; };
+		F61F8AC22A8E2675003856C5 /* EmptyStateView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F61F8AC12A8E2675003856C5 /* EmptyStateView.xib */; };
 		F62D8B332A8AE431008D9C7A /* ShadowButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62D8B322A8AE431008D9C7A /* ShadowButton.swift */; };
 		F630AEF429C6F4E000FBF2AD /* TaskDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F630AEF329C6F4E000FBF2AD /* TaskDetailViewController.swift */; };
+		F63A56A62A8E20E80006945D /* Poppins-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F63A56A52A8E20E80006945D /* Poppins-Bold.ttf */; };
+		F63A56A82A8E20F80006945D /* Poppins-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F63A56A72A8E20F80006945D /* Poppins-Medium.ttf */; };
+		F63A56AA2A8E21080006945D /* Poppins-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F63A56A92A8E21080006945D /* Poppins-Regular.ttf */; };
 		F63AE19929EBEA090037E523 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = F63AE19829EBEA090037E523 /* Task.swift */; };
 		F64036B629E52440009CBCCD /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = F64036B529E52440009CBCCD /* Realm */; };
 		F64036B829E52440009CBCCD /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = F64036B729E52440009CBCCD /* RealmSwift */; };
-		F65955A029E2CE4300E161EB /* EmptyStateView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F659559F29E2CE4300E161EB /* EmptyStateView.xib */; };
 		F6835D2129E2AC1D0075FB5C /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = F6835D2029E2AC1D0075FB5C /* Lottie */; };
 		F6835D2529E2BCAB0075FB5C /* TaskMan.json in Resources */ = {isa = PBXBuildFile; fileRef = F6835D2429E2BCAB0075FB5C /* TaskMan.json */; };
 		F6835D2729E2C17F0075FB5C /* EmptyStateTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6835D2629E2C17F0075FB5C /* EmptyStateTableViewCell.swift */; };
@@ -39,10 +42,13 @@
 		F61C2B8929A4CFDC0097CA7B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F61C2B8B29A4CFDC0097CA7B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F61C2B9129A4D6680097CA7B /* TaskTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskTableViewCell.swift; sourceTree = "<group>"; };
+		F61F8AC12A8E2675003856C5 /* EmptyStateView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EmptyStateView.xib; sourceTree = "<group>"; };
 		F62D8B322A8AE431008D9C7A /* ShadowButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowButton.swift; sourceTree = "<group>"; };
 		F630AEF329C6F4E000FBF2AD /* TaskDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskDetailViewController.swift; sourceTree = "<group>"; };
+		F63A56A52A8E20E80006945D /* Poppins-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Bold.ttf"; sourceTree = "<group>"; };
+		F63A56A72A8E20F80006945D /* Poppins-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Medium.ttf"; sourceTree = "<group>"; };
+		F63A56A92A8E21080006945D /* Poppins-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Regular.ttf"; sourceTree = "<group>"; };
 		F63AE19829EBEA090037E523 /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
-		F659559F29E2CE4300E161EB /* EmptyStateView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EmptyStateView.xib; sourceTree = "<group>"; };
 		F6835D2429E2BCAB0075FB5C /* TaskMan.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = TaskMan.json; sourceTree = "<group>"; };
 		F6835D2629E2C17F0075FB5C /* EmptyStateTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyStateTableViewCell.swift; sourceTree = "<group>"; };
 		F6835D2829E2CD810075FB5C /* EmptyStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyStateView.swift; sourceTree = "<group>"; };
@@ -82,18 +88,13 @@
 		F61C2B7C29A4CFDB0097CA7B /* ToDoListApp */ = {
 			isa = PBXGroup;
 			children = (
+				F61F8AC32A8E26B7003856C5 /* ViewControllers */,
+				F63A56AB2A8E25DF0006945D /* Views */,
 				F63AE19729EBE9C90037E523 /* Models */,
 				F6835D2229E2BC750075FB5C /* Resources */,
 				F61C2B7D29A4CFDB0097CA7B /* AppDelegate.swift */,
 				F61C2B7F29A4CFDB0097CA7B /* SceneDelegate.swift */,
-				F61C2B8129A4CFDB0097CA7B /* ViewController.swift */,
-				F61C2B9129A4D6680097CA7B /* TaskTableViewCell.swift */,
-				F61A42B329BBAC2A0096CB23 /* AddTaskViewController.swift */,
 				F6AA3A3A29BF765300D83FB8 /* CategoriesModel.swift */,
-				F630AEF329C6F4E000FBF2AD /* TaskDetailViewController.swift */,
-				F6835D2629E2C17F0075FB5C /* EmptyStateTableViewCell.swift */,
-				F6835D2829E2CD810075FB5C /* EmptyStateView.swift */,
-				F659559F29E2CE4300E161EB /* EmptyStateView.xib */,
 				F61C2B8329A4CFDB0097CA7B /* Main.storyboard */,
 				F61C2B8629A4CFDC0097CA7B /* Assets.xcassets */,
 				F61C2B8829A4CFDC0097CA7B /* LaunchScreen.storyboard */,
@@ -101,6 +102,37 @@
 				F62D8B322A8AE431008D9C7A /* ShadowButton.swift */,
 			);
 			path = ToDoListApp;
+			sourceTree = "<group>";
+		};
+		F61F8AC32A8E26B7003856C5 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				F61C2B8129A4CFDB0097CA7B /* ViewController.swift */,
+				F61A42B329BBAC2A0096CB23 /* AddTaskViewController.swift */,
+				F630AEF329C6F4E000FBF2AD /* TaskDetailViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		F63A56A42A8E20C50006945D /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				F63A56A92A8E21080006945D /* Poppins-Regular.ttf */,
+				F63A56A72A8E20F80006945D /* Poppins-Medium.ttf */,
+				F63A56A52A8E20E80006945D /* Poppins-Bold.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		F63A56AB2A8E25DF0006945D /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				F61C2B9129A4D6680097CA7B /* TaskTableViewCell.swift */,
+				F61F8AC12A8E2675003856C5 /* EmptyStateView.xib */,
+				F6835D2629E2C17F0075FB5C /* EmptyStateTableViewCell.swift */,
+				F6835D2829E2CD810075FB5C /* EmptyStateView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		F63AE19729EBE9C90037E523 /* Models */ = {
@@ -114,6 +146,7 @@
 		F6835D2229E2BC750075FB5C /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				F63A56A42A8E20C50006945D /* Fonts */,
 				F6835D2329E2BC920075FB5C /* Lottie */,
 			);
 			path = Resources;
@@ -194,11 +227,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F61F8AC22A8E2675003856C5 /* EmptyStateView.xib in Resources */,
 				F61C2B8A29A4CFDC0097CA7B /* LaunchScreen.storyboard in Resources */,
-				F65955A029E2CE4300E161EB /* EmptyStateView.xib in Resources */,
+				F63A56A82A8E20F80006945D /* Poppins-Medium.ttf in Resources */,
+				F63A56A62A8E20E80006945D /* Poppins-Bold.ttf in Resources */,
 				F61C2B8729A4CFDC0097CA7B /* Assets.xcassets in Resources */,
 				F61C2B8529A4CFDB0097CA7B /* Main.storyboard in Resources */,
 				F6835D2529E2BCAB0075FB5C /* TaskMan.json in Resources */,
+				F63A56AA2A8E21080006945D /* Poppins-Regular.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

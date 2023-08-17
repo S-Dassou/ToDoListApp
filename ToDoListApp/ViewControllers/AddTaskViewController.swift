@@ -50,10 +50,11 @@ class AddTaskViewController: UIViewController {
         descriptionTextView.layer.borderWidth = 0.5
         descriptionTextView.layer.borderColor = UIColor.lightGray.cgColor
         descriptionTextView.layer.cornerRadius = 6
-        submitButton.layer.cornerRadius = submitButton.frame.height / 2
+        submitButton.layer.cornerRadius = 5
         submitButton.layer.shadowColor = shadowColor.cgColor
         submitButton.layer.shadowOpacity = 1.0
         submitButton.layer.shadowRadius = 0
+        submitButton.layer.shadowOffset = CGSize(width: 0, height: 5)
         modalView.transform = CGAffineTransform(scaleX: 0, y: 0)
     }
     
@@ -127,8 +128,16 @@ extension AddTaskViewController: UIPickerViewDataSource {
 }
 
 extension AddTaskViewController: UIPickerViewDelegate {
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+
+    func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
+        var pickerLabel: UILabel? = view as? UILabel
+        if pickerLabel == nil {
+            pickerLabel = UILabel()
+            pickerLabel?.font = UIFont.systemFont(ofSize: 15, weight: .semibold)
+            pickerLabel?.textAlignment = .center
+        }
         let titleOfCategory = categories[row]
-        return titleOfCategory.rawValue
+        pickerLabel?.text = titleOfCategory.rawValue
+        return pickerLabel!
     }
 }
