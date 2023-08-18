@@ -76,6 +76,8 @@ class ViewController: UIViewController {
         navigationController?.navigationBar.prefersLargeTitles = true
         tableView.dataSource = self
         tableView.delegate = self
+        tableView.estimatedRowHeight = 80
+        tableView.rowHeight = UITableView.automaticDimension
         tableView.tableFooterView = UIView()
         NotificationCenter.default.addObserver(self, selector: #selector(refresh), name: NSNotification.Name(rawValue: "com.shafiquedassu.refresh"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(deleteTaskFromNotification(_:)), name: NSNotification.Name("com.shafiquedassu.deleteTask"), object: nil)
@@ -196,7 +198,7 @@ extension ViewController: UITableViewDataSource {
 //        } else {
             let task = tasks[indexPath.row]
             let cell = tableView.dequeueReusableCell(withIdentifier: "TaskTableViewCell", for: indexPath) as! TaskTableViewCell
-            
+            cell.selectionStyle = .none
             cell.titleLabel.text = task.title
             cell.categoryLabel.text = task.category.rawValue
             cell.delegate = self // (initialise VC var)
@@ -229,9 +231,10 @@ extension ViewController: UITableViewDataSource {
     //MARK: - Change row height
     extension ViewController: UITableViewDelegate {
         
-        func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-            return 80
-        }
+//        func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+//            return 80
+//        }
+        
         
         func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
             performSegue(withIdentifier: "TaskDetailSegue", sender: indexPath.row)
