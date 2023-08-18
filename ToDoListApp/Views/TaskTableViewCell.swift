@@ -14,6 +14,7 @@ class TaskTableViewCell: UITableViewCell {
     @IBOutlet weak var checkmarkButton: UIButton!
     @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var categoryContainerView: UIView!
+    @IBOutlet weak var descriptionLabel: UILabel!
     
     weak var delegate: ViewControllerDelegate?
     var index = 0
@@ -32,6 +33,10 @@ class TaskTableViewCell: UITableViewCell {
         categoryContainerView.layer.cornerRadius = categoryContainerView.frame.height / 2
     }
     
+    
+    @IBAction func editTaskButtonTapped(_ sender: Any) {
+        
+    }
     
     @IBAction func checkmarkButtonTapped(_ sender: Any) {
         print("cell was tapped")

@@ -86,6 +86,9 @@
                                                             <buttonConfiguration key="configuration" style="plain" image="circles.grid">
                                                                 <color key="baseForegroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                             </buttonConfiguration>
+                                                            <connections>
+                                                                <action selector="editTaskButtonTapped:" destination="3sa-wc-6f6" eventType="touchUpInside" id="1ie-4t-vRa"/>
+                                                            </connections>
                                                         </button>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="stD-JG-pJ9">
                                                             <rect key="frame" x="20" y="84.333333333333329" width="318" height="17.666666666666671"/>
@@ -127,6 +130,7 @@
                                             <outlet property="categoryLabel" destination="K8p-mE-aQJ" id="kKO-xV-JoA"/>
                                             <outlet property="checkmarkButton" destination="0I2-Wg-B7r" id="JSV-ER-lqZ"/>
                                             <outlet property="containerView" destination="crQ-Ca-Ipv" id="xbI-Y9-Pzb"/>
+                                            <outlet property="descriptionLabel" destination="stD-JG-pJ9" id="ENE-Dm-JgX"/>
                                             <outlet property="titleLabel" destination="yeD-e5-0pS" id="S6d-n0-egf"/>
                                         </connections>
                                     </tableViewCell>

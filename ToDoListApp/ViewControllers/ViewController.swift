@@ -201,6 +201,7 @@ extension ViewController: UITableViewDataSource {
             cell.selectionStyle = .none
             cell.titleLabel.text = task.title
             cell.categoryLabel.text = task.category.rawValue
+            cell.descriptionLabel.text = task.description
             cell.delegate = self // (initialise VC var)
             cell.index = indexPath.row
             
