@@ -76,20 +76,6 @@
                                                                 <action selector="checkmarkButtonTapped:" destination="3sa-wc-6f6" eventType="touchUpInside" id="y0L-h8-Kow"/>
                                                             </connections>
                                                         </button>
-                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q8N-dL-lB0">
-                                                            <rect key="frame" x="309" y="9.6666666666666679" width="34" height="34"/>
-                                                            <constraints>
-                                                                <constraint firstAttribute="height" constant="34" id="2z8-jV-5SW"/>
-                                                                <constraint firstAttribute="width" constant="34" id="G2g-EJ-l0L"/>
-                                                            </constraints>
-                                                            <state key="normal" title="Button"/>
-                                                            <buttonConfiguration key="configuration" style="plain" image="circles.grid">
-                                                                <color key="baseForegroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                            </buttonConfiguration>
-                                                            <connections>
-                                                                <action selector="editTaskButtonTapped:" destination="3sa-wc-6f6" eventType="touchUpInside" id="1ie-4t-vRa"/>
-                                                            </connections>
-                                                        </button>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="stD-JG-pJ9">
                                                             <rect key="frame" x="20" y="84.333333333333329" width="318" height="17.666666666666671"/>
                                                             <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
@@ -102,14 +88,12 @@
                                                         <constraint firstAttribute="trailing" secondItem="0I2-Wg-B7r" secondAttribute="trailing" constant="10" id="0fJ-a5-h7j"/>
                                                         <constraint firstItem="yeD-e5-0pS" firstAttribute="top" secondItem="5B8-Ae-YxQ" secondAttribute="bottom" constant="18" id="2zN-dR-MtA"/>
                                                         <constraint firstAttribute="trailing" secondItem="stD-JG-pJ9" secondAttribute="trailing" constant="15" id="7BS-Aq-QBX"/>
-                                                        <constraint firstAttribute="trailing" secondItem="q8N-dL-lB0" secondAttribute="trailing" constant="10" id="HJX-AH-kFF"/>
                                                         <constraint firstItem="stD-JG-pJ9" firstAttribute="top" secondItem="yeD-e5-0pS" secondAttribute="bottom" constant="10" id="HJp-Nb-6RT"/>
                                                         <constraint firstItem="5B8-Ae-YxQ" firstAttribute="top" secondItem="rYu-aZ-02b" secondAttribute="top" constant="15" id="Jbk-Ec-FDT"/>
                                                         <constraint firstItem="5B8-Ae-YxQ" firstAttribute="leading" secondItem="crQ-Ca-Ipv" secondAttribute="trailing" constant="15" id="Pf9-p7-hE2"/>
                                                         <constraint firstAttribute="bottom" secondItem="crQ-Ca-Ipv" secondAttribute="bottom" id="Src-Ng-CYY"/>
                                                         <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="stD-JG-pJ9" secondAttribute="bottom" constant="15" id="a9s-2N-WWG"/>
                                                         <constraint firstItem="yeD-e5-0pS" firstAttribute="leading" secondItem="crQ-Ca-Ipv" secondAttribute="trailing" constant="15" id="aAB-HF-2o8"/>
-                                                        <constraint firstItem="q8N-dL-lB0" firstAttribute="centerY" secondItem="5B8-Ae-YxQ" secondAttribute="centerY" id="efG-Mb-fnV"/>
                                                         <constraint firstItem="crQ-Ca-Ipv" firstAttribute="top" secondItem="rYu-aZ-02b" secondAttribute="top" id="ffu-Gi-sld"/>
                                                         <constraint firstItem="stD-JG-pJ9" firstAttribute="leading" secondItem="crQ-Ca-Ipv" secondAttribute="trailing" constant="15" id="oMx-vm-rYz"/>
                                                         <constraint firstItem="crQ-Ca-Ipv" firstAttribute="leading" secondItem="rYu-aZ-02b" secondAttribute="leading" id="pr0-Ui-n8W"/>
@@ -444,7 +428,6 @@
     </inferredMetricsTieBreakers>
     <resources>
         <image name="circle" catalog="system" width="128" height="123"/>
-        <image name="circles.grid" width="46" height="46"/>
         <image name="trash" catalog="system" width="117" height="128"/>
         <image name="xmark" catalog="system" width="128" height="113"/>
         <systemColor name="labelColor">
