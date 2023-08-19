@@ -16,6 +16,8 @@
 		F61C2B8A29A4CFDC0097CA7B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F61C2B8829A4CFDC0097CA7B /* LaunchScreen.storyboard */; };
 		F61C2B9229A4D6680097CA7B /* TaskTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F61C2B9129A4D6680097CA7B /* TaskTableViewCell.swift */; };
 		F61F8AC22A8E2675003856C5 /* EmptyStateView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F61F8AC12A8E2675003856C5 /* EmptyStateView.xib */; };
+		F61F8AC62A911DAE003856C5 /* Colours.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F61F8AC52A911DAE003856C5 /* Colours.xcassets */; };
+		F61F8AC82A9121EE003856C5 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F61F8AC72A9121EE003856C5 /* UIColor.swift */; };
 		F62D8B332A8AE431008D9C7A /* ShadowButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62D8B322A8AE431008D9C7A /* ShadowButton.swift */; };
 		F630AEF429C6F4E000FBF2AD /* TaskDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F630AEF329C6F4E000FBF2AD /* TaskDetailViewController.swift */; };
 		F63A56A62A8E20E80006945D /* Poppins-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F63A56A52A8E20E80006945D /* Poppins-Bold.ttf */; };
@@ -43,6 +45,8 @@
 		F61C2B8B29A4CFDC0097CA7B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F61C2B9129A4D6680097CA7B /* TaskTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskTableViewCell.swift; sourceTree = "<group>"; };
 		F61F8AC12A8E2675003856C5 /* EmptyStateView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EmptyStateView.xib; sourceTree = "<group>"; };
+		F61F8AC52A911DAE003856C5 /* Colours.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colours.xcassets; sourceTree = "<group>"; };
+		F61F8AC72A9121EE003856C5 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		F62D8B322A8AE431008D9C7A /* ShadowButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowButton.swift; sourceTree = "<group>"; };
 		F630AEF329C6F4E000FBF2AD /* TaskDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskDetailViewController.swift; sourceTree = "<group>"; };
 		F63A56A52A8E20E80006945D /* Poppins-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Bold.ttf"; sourceTree = "<group>"; };
@@ -94,7 +98,6 @@
 				F6835D2229E2BC750075FB5C /* Resources */,
 				F61C2B7D29A4CFDB0097CA7B /* AppDelegate.swift */,
 				F61C2B7F29A4CFDB0097CA7B /* SceneDelegate.swift */,
-				F6AA3A3A29BF765300D83FB8 /* CategoriesModel.swift */,
 				F61C2B8329A4CFDB0097CA7B /* Main.storyboard */,
 				F61C2B8629A4CFDC0097CA7B /* Assets.xcassets */,
 				F61C2B8829A4CFDC0097CA7B /* LaunchScreen.storyboard */,
@@ -112,6 +115,15 @@
 				F630AEF329C6F4E000FBF2AD /* TaskDetailViewController.swift */,
 			);
 			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		F61F8AC42A911D96003856C5 /* Colours */ = {
+			isa = PBXGroup;
+			children = (
+				F61F8AC52A911DAE003856C5 /* Colours.xcassets */,
+				F61F8AC72A9121EE003856C5 /* UIColor.swift */,
+			);
+			path = Colours;
 			sourceTree = "<group>";
 		};
 		F63A56A42A8E20C50006945D /* Fonts */ = {
@@ -139,6 +151,7 @@
 			isa = PBXGroup;
 			children = (
 				F63AE19829EBEA090037E523 /* Task.swift */,
+				F6AA3A3A29BF765300D83FB8 /* CategoriesModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -146,6 +159,7 @@
 		F6835D2229E2BC750075FB5C /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				F61F8AC42A911D96003856C5 /* Colours */,
 				F63A56A42A8E20C50006945D /* Fonts */,
 				F6835D2329E2BC920075FB5C /* Lottie */,
 			);
@@ -234,6 +248,7 @@
 				F61C2B8729A4CFDC0097CA7B /* Assets.xcassets in Resources */,
 				F61C2B8529A4CFDB0097CA7B /* Main.storyboard in Resources */,
 				F6835D2529E2BCAB0075FB5C /* TaskMan.json in Resources */,
+				F61F8AC62A911DAE003856C5 /* Colours.xcassets in Resources */,
 				F63A56AA2A8E21080006945D /* Poppins-Regular.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -246,6 +261,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F6835D2929E2CD810075FB5C /* EmptyStateView.swift in Sources */,
+				F61F8AC82A9121EE003856C5 /* UIColor.swift in Sources */,
 				F630AEF429C6F4E000FBF2AD /* TaskDetailViewController.swift in Sources */,
 				F63AE19929EBEA090037E523 /* Task.swift in Sources */,
 				F61C2B9229A4D6680097CA7B /* TaskTableViewCell.swift in Sources */,
