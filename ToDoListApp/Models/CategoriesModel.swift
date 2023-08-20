@@ -14,4 +14,15 @@ enum Category: String, CaseIterable {
             return UIColor.work
         }
     }
+    
+    var secondaryColor: UIColor {
+        switch self {
+        case .gym:
+            return UIColor.secondaryFitness
+        case .hobby:
+            return UIColor.secondaryHobby
+        case .work:
+            return UIColor.secondaryWork
+        }
+    }
 }

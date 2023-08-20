@@ -37,6 +37,9 @@ class TaskTableViewCell: UITableViewCell {
     
     func configure(withTask task: Task, delegate: ViewControllerDelegate?) {
         stripView.backgroundColor = task.category.color
+        categoryContainerView.backgroundColor = task.category.secondaryColor
+        categoryLabel.textColor = task.category.color
+        categoryLabel.font = .systemFont(ofSize: 15, weight: .semibold)
         self.task = task
         self.delegate = delegate
     }

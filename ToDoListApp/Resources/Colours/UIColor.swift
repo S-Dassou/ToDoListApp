@@ -19,5 +19,13 @@ extension UIColor {
     static var fitness: UIColor {
         return UIColor(named: "Fitness")!
     }
-
+    static var secondaryWork: UIColor {
+        return UIColor(named: "Work")!.withAlphaComponent(0.2)
+    }
+    static var secondaryHobby: UIColor {
+        return UIColor(named: "Hobby")!.withAlphaComponent(0.2)
+    }
+    static var secondaryFitness: UIColor {
+        return UIColor(named: "Fitness")!.withAlphaComponent(0.2)
+    }
 }
