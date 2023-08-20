@@ -115,6 +115,7 @@
                                             <outlet property="checkmarkButton" destination="0I2-Wg-B7r" id="JSV-ER-lqZ"/>
                                             <outlet property="containerView" destination="crQ-Ca-Ipv" id="xbI-Y9-Pzb"/>
                                             <outlet property="descriptionLabel" destination="stD-JG-pJ9" id="ENE-Dm-JgX"/>
+                                            <outlet property="stripView" destination="crQ-Ca-Ipv" id="Ykr-zX-iee"/>
                                             <outlet property="titleLabel" destination="yeD-e5-0pS" id="S6d-n0-egf"/>
                                         </connections>
                                     </tableViewCell>

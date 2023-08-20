@@ -19,4 +19,5 @@ extension UIColor {
     static var fitness: UIColor {
         return UIColor(named: "Fitness")!
     }
+
 }
