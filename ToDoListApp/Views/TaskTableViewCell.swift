@@ -24,8 +24,8 @@ class TaskTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         containerView.clipsToBounds = true
-        categoryContainerView.backgroundColor = UIColor.link.withAlphaComponent(0.5)
-        categoryLabel.textColor = .white
+//        categoryContainerView.backgroundColor = UIColor.link.withAlphaComponent(0.5)
+//        categoryLabel.textColor = .white
     }
     
     override func layoutSubviews() {
@@ -42,11 +42,6 @@ class TaskTableViewCell: UITableViewCell {
         categoryLabel.font = .systemFont(ofSize: 15, weight: .semibold)
         self.task = task
         self.delegate = delegate
-    }
-    
-    
-    @IBAction func editTaskButtonTapped(_ sender: Any) {
-        
     }
     
     @IBAction func checkmarkButtonTapped(_ sender: Any) {

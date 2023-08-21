@@ -38,7 +38,6 @@ class ViewController: UIViewController {
         button.addTarget(self, action: #selector(addButtonTapped), for: .touchUpInside)
         button.frame = CGRect(x: (viewWidth / 2) - (buttonWidth / 2), y: (viewHeight - buttonHeight - 40), width: buttonWidth, height: buttonHeight)
         
-        
         return button
     }()
  

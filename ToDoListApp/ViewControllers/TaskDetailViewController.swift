@@ -13,6 +13,7 @@ protocol TaskDetailDelegate: AnyObject {
 
 class TaskDetailViewController: UIViewController {
 
+    @IBOutlet weak var categoryDetailContainerView: UIView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var categoryLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
@@ -32,16 +33,39 @@ class TaskDetailViewController: UIViewController {
         super.viewDidLoad()
         if let task = task {
            setupTaskDetail(task: task)
+           configureDetailView(task: task)
         }
         NotificationCenter.default.addObserver(self, selector: #selector(updateTaskFromNotification(_:)), name: NSNotification.Name("com.shafiquedassu.updateTask"), object: nil)
+        
+        //titleLabel.layer.borderWidth = 0.8
+//        titleLabel.layer.borderColor = UIColor.lightGray.cgColor
+//        titleLabel.layer.cornerRadius = 6
+//        descriptionLabel.layer.borderWidth = 0.8
+//        descriptionLabel.layer.borderColor = UIColor.lightGray.cgColor
+//        descriptionLabel.layer.cornerRadius = 6
+//        toggleTaskCompletionButton.layer.cornerRadius = 5
+//       // toggleTaskCompletionButton.layer.shadowColor = shadowColor.cgColor
+//        toggleTaskCompletionButton.layer.shadowOpacity = 1.0
+//        toggleTaskCompletionButton.layer.shadowRadius = 0
+//        toggleTaskCompletionButton.layer.shadowOffset = CGSize(width: 0, height: 5)
+       
     }
     
+    // function to configure the inputs and functionality of task detail
     func setupTaskDetail(task: Task) {
         titleLabel.text = task.title
         categoryLabel.text = task.category.rawValue
         descriptionLabel.text = task.description
         let toggleButtonTitle = task.isComplete ? "Mark Task Incomplete" : "Mark Task Complete"
         toggleTaskCompletionButton.setTitle(toggleButtonTitle, for: .normal)
+    }
+    
+    // configuring the layout and design of the detail
+    func configureDetailView(task: Task) {
+        categoryDetailContainerView.backgroundColor = task.category.secondaryColor
+        categoryLabel.textColor = task.category.color
+        
+        self.task = task
     }
     
     @objc func updateTaskFromNotification(_ notification: Notification) {
