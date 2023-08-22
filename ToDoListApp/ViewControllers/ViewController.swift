@@ -119,10 +119,8 @@ class ViewController: UIViewController {
                 localTask.taskTitle = task.title
                 localTask.taskDescription = task.description
                 localTask.category = task.category.rawValue
-                
             }
             try! realm.write {
-                
             }
             tasks[index] = task
             tableView.reloadData()

@@ -187,25 +187,17 @@
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WwT-4h-SLS">
                                 <rect key="frame" x="25" y="713" width="343" height="45"/>
+                                <color key="backgroundColor" systemColor="linkColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="ERc-03-6yi"/>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="45" id="icK-y8-XTF"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="gray" title="Edit Task"/>
+                                <buttonConfiguration key="configuration" style="gray" title="Edit Task">
+                                    <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </buttonConfiguration>
                                 <connections>
                                     <action selector="editTaskButtonTapped:" destination="BLq-HE-jJf" eventType="touchUpInside" id="Idc-zO-LDV"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Scl-mL-gPY">
-                                <rect key="frame" x="25" y="633" width="343" height="45"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="45" id="1ja-Gx-1lO"/>
-                                </constraints>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="gray" title="Mark Task Complete"/>
-                                <connections>
-                                    <action selector="toggleTaskCompletionButtonTapped:" destination="BLq-HE-jJf" eventType="touchUpInside" id="Dzt-7V-CE0"/>
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="T1D-cZ-iKG" userLabel="Container View">
@@ -238,13 +230,26 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ln1-Hu-rld">
+                                <rect key="frame" x="349" y="113.66666666666669" width="34" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="34" id="jmP-ra-ZZZ"/>
+                                    <constraint firstAttribute="height" constant="34" id="pIp-Qa-9tU"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="circle" catalog="system">
+                                    <color key="baseForegroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="toggleTaskCompletionButtonTapped:" destination="BLq-HE-jJf" eventType="touchUpInside" id="bBe-xB-gXJ"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vXA-Zr-Xtb"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="Scl-mL-gPY" firstAttribute="leading" secondItem="vXA-Zr-Xtb" secondAttribute="leading" constant="25" id="4N9-0C-bZC"/>
+                            <constraint firstItem="Ln1-Hu-rld" firstAttribute="centerY" secondItem="qhj-jN-GDP" secondAttribute="centerY" id="31f-D0-zxU"/>
                             <constraint firstItem="vXA-Zr-Xtb" firstAttribute="trailing" secondItem="Uk7-17-mQl" secondAttribute="trailing" constant="15" id="9Om-on-ah8"/>
-                            <constraint firstItem="vXA-Zr-Xtb" firstAttribute="trailing" secondItem="Scl-mL-gPY" secondAttribute="trailing" constant="25" id="AEg-LY-Ou2"/>
                             <constraint firstItem="T1D-cZ-iKG" firstAttribute="leading" secondItem="vXA-Zr-Xtb" secondAttribute="leading" constant="15" id="CM7-Ox-reh"/>
                             <constraint firstItem="Chp-KW-gFB" firstAttribute="leading" secondItem="vXA-Zr-Xtb" secondAttribute="leading" constant="15" id="G7Q-4H-GXP"/>
                             <constraint firstItem="vXA-Zr-Xtb" firstAttribute="trailing" secondItem="Chp-KW-gFB" secondAttribute="trailing" constant="15" id="GgN-1c-ZwB"/>
@@ -252,7 +257,7 @@
                             <constraint firstItem="vXA-Zr-Xtb" firstAttribute="trailing" secondItem="WwT-4h-SLS" secondAttribute="trailing" constant="25" id="TYa-Pr-aDq"/>
                             <constraint firstItem="vXA-Zr-Xtb" firstAttribute="bottom" secondItem="WwT-4h-SLS" secondAttribute="bottom" constant="60" id="XPR-KL-60c"/>
                             <constraint firstItem="WwT-4h-SLS" firstAttribute="leading" secondItem="vXA-Zr-Xtb" secondAttribute="leading" constant="25" id="cxH-Ky-Kv8"/>
-                            <constraint firstItem="WwT-4h-SLS" firstAttribute="top" secondItem="Scl-mL-gPY" secondAttribute="bottom" constant="35" id="evb-O7-Czg"/>
+                            <constraint firstItem="vXA-Zr-Xtb" firstAttribute="trailing" secondItem="Ln1-Hu-rld" secondAttribute="trailing" constant="10" id="gYg-2x-zpQ"/>
                             <constraint firstItem="Chp-KW-gFB" firstAttribute="top" secondItem="T1D-cZ-iKG" secondAttribute="bottom" constant="20" id="jt6-Du-meB"/>
                             <constraint firstItem="Uk7-17-mQl" firstAttribute="leading" secondItem="vXA-Zr-Xtb" secondAttribute="leading" constant="15" id="kEA-VI-B2I"/>
                             <constraint firstItem="Uk7-17-mQl" firstAttribute="top" secondItem="Chp-KW-gFB" secondAttribute="bottom" constant="15" id="n6O-jP-wqG"/>
@@ -269,8 +274,9 @@
                         <outlet property="categoryDetailContainerView" destination="T1D-cZ-iKG" id="4WK-Hp-Zeu"/>
                         <outlet property="categoryLabel" destination="qhj-jN-GDP" id="xmg-B4-Dew"/>
                         <outlet property="descriptionLabel" destination="Uk7-17-mQl" id="TT1-i3-MJY"/>
+                        <outlet property="editTaskButton" destination="WwT-4h-SLS" id="FhX-SF-UBU"/>
                         <outlet property="titleLabel" destination="Chp-KW-gFB" id="zRq-IE-biZ"/>
-                        <outlet property="toggleTaskCompletionButton" destination="Scl-mL-gPY" id="Xc0-AZ-Gld"/>
+                        <outlet property="toggleTaskCompletionButton" destination="Ln1-Hu-rld" id="cjV-9D-inF"/>
                         <segue destination="724-yU-jC4" kind="presentation" identifier="EditTaskSegue" modalTransitionStyle="crossDissolve" id="yvv-Qt-2bW"/>
                     </connections>
                 </viewController>

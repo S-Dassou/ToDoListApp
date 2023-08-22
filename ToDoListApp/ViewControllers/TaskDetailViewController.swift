@@ -18,8 +18,11 @@ class TaskDetailViewController: UIViewController {
     @IBOutlet weak var categoryLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var toggleTaskCompletionButton: UIButton!
+    @IBOutlet weak var editTaskButton: UIButton!
+    
     var task: Task?
     var index: Int?
+    var shadowColor: UIColor = .gray
     weak var delegate: TaskDetailDelegate?
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -36,19 +39,18 @@ class TaskDetailViewController: UIViewController {
            configureDetailView(task: task)
         }
         NotificationCenter.default.addObserver(self, selector: #selector(updateTaskFromNotification(_:)), name: NSNotification.Name("com.shafiquedassu.updateTask"), object: nil)
-        
-        //titleLabel.layer.borderWidth = 0.8
-//        titleLabel.layer.borderColor = UIColor.lightGray.cgColor
-//        titleLabel.layer.cornerRadius = 6
-//        descriptionLabel.layer.borderWidth = 0.8
-//        descriptionLabel.layer.borderColor = UIColor.lightGray.cgColor
-//        descriptionLabel.layer.cornerRadius = 6
-//        toggleTaskCompletionButton.layer.cornerRadius = 5
-//       // toggleTaskCompletionButton.layer.shadowColor = shadowColor.cgColor
-//        toggleTaskCompletionButton.layer.shadowOpacity = 1.0
-//        toggleTaskCompletionButton.layer.shadowRadius = 0
-//        toggleTaskCompletionButton.layer.shadowOffset = CGSize(width: 0, height: 5)
+  
+        editTaskButton.layer.cornerRadius = 5
+        editTaskButton.layer.shadowColor = shadowColor.cgColor
+        editTaskButton.layer.shadowOpacity = 1.0
+        editTaskButton.layer.shadowRadius = 0
+        editTaskButton.layer.shadowOffset = CGSize(width: 0, height: 5)
        
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        categoryDetailContainerView.layer.cornerRadius = categoryDetailContainerView.frame.height / 2
     }
     
     // function to configure the inputs and functionality of task detail
@@ -56,8 +58,14 @@ class TaskDetailViewController: UIViewController {
         titleLabel.text = task.title
         categoryLabel.text = task.category.rawValue
         descriptionLabel.text = task.description
-        let toggleButtonTitle = task.isComplete ? "Mark Task Incomplete" : "Mark Task Complete"
-        toggleTaskCompletionButton.setTitle(toggleButtonTitle, for: .normal)
+        
+        if task.isComplete {
+            toggleTaskCompletionButton.setImage(UIImage(systemName: "checkmark.circle"), for: .normal)
+        } else {
+            toggleTaskCompletionButton.setImage(UIImage(systemName: "circle"), for: .normal)
+        }
+//        let toggleButtonTitle = task.isComplete ? "Mark Task Incomplete" : "Mark Task Complete"
+//        toggleTaskCompletionButton.setTitle(toggleButtonTitle, for: .normal)
     }
     
     // configuring the layout and design of the detail
@@ -100,9 +108,18 @@ class TaskDetailViewController: UIViewController {
     
     @IBAction func toggleTaskCompletionButtonTapped(_ sender: Any) {
         guard let task = task else { return }
+        print("tapped")
         task.isComplete.toggle()
-        let toggleButtonTitle = task.isComplete ? "Mark Task Incomplete" : "Mark Task Complete"
-        toggleTaskCompletionButton.setTitle(toggleButtonTitle, for: .normal)
+        if task.isComplete {
+            toggleTaskCompletionButton.setImage(UIImage(systemName: "checkmark.circle"), for: .normal)
+        } else {
+            toggleTaskCompletionButton.setImage(UIImage(systemName: "circle"), for: .normal)
+        }
+        
+        
+//        task.isComplete.toggle()
+//        let toggleButtonTitle = task.isComplete ? "Mark Task Incomplete" : "Mark Task Complete"
+//        toggleTaskCompletionButton.setTitle(toggleButtonTitle, for: .normal)
         NotificationCenter.default.post(name: NSNotification.Name(rawValue: "com.shafiquedassu.refresh"), object: nil)
     }
     
