@@ -116,12 +116,13 @@ class ViewController: UIViewController {
       
             let realm = try! Realm()
             if let localTask = realm.object(ofType: LocalTask.self, forPrimaryKey: task.id) {
-                localTask.taskTitle = task.title
-                localTask.taskDescription = task.description
-                localTask.category = task.category.rawValue
+                try! realm.write {
+                    localTask.taskTitle = task.title
+                    localTask.taskDescription = task.description
+                    localTask.category = task.category.rawValue
+                }
             }
-            try! realm.write {
-            }
+            
             tasks[index] = task
             tableView.reloadData()
         }
